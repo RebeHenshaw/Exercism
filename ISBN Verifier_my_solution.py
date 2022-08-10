@@ -9,3 +9,4 @@ def is_valid(isbn: str)-> bool:
         return False
     if not all(char.isdigit() for char in onlydigits):
         return False
+    return sum(multiplication_pattern * int(isbn_digits) for multiplication_pattern, isbn_digits in enumerate(reversed(onlydigits), 1)) % 11 == 0
